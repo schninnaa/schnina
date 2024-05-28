@@ -8,6 +8,7 @@
         body {
             background-color: black;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -19,6 +20,7 @@
             color: white;
             font-size: 3em;
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+            text-align: center;
             z-index: 1;
         }
         .floating-image {
@@ -31,8 +33,11 @@
     </style>
 </head>
 <body>
-    <div class="message">I love you</div>
-    <img src="IMG_4329.jpeg" alt="Floating Image" class="floating-image" id="floatingImage">
+    <div class="message">
+        <div>I love you</div>
+        <div>lol :(</div>
+    </div>
+    <img src="path/to/your/image.jpg" alt="Floating Image" class="floating-image" id="floatingImage">
 
     <script>
         const img = document.getElementById('floatingImage');
