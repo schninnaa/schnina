@@ -13,15 +13,42 @@
             height: 100vh;
             margin: 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
         }
         .message {
             color: white;
             font-size: 3em;
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+            z-index: 1;
+        }
+        .floating-image {
+            position: absolute;
+            width: 100px; /* Adjust the size as needed */
+            height: auto;
+            z-index: 0;
+            pointer-events: none; /* Prevents the image from blocking other interactions */
         }
     </style>
 </head>
 <body>
     <div class="message">I love you</div>
+    <img src="gatze.jpg" alt="Floating Image" class="floating-image" id="floatingImage">
+
+    <script>
+        const img = document.getElementById('floatingImage');
+
+        function getRandomPosition() {
+            const x = Math.random() * (window.innerWidth - img.clientWidth);
+            const y = Math.random() * (window.innerHeight - img.clientHeight);
+            return { x, y };
+        }
+
+        function moveImage() {
+            const { x, y } = getRandomPosition();
+            img.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        setInterval(moveImage, 2000); // Move the image every 2 seconds
+    </script>
 </body>
 </html>
